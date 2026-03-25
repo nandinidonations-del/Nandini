@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Us — Nandini Dharmartha Gau Seva Trust</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --maroon:   #6B1A1A;
+            --saffron:  #D4780A;
+            --gold:     #C9922A;
+            --ivory:    #FDF6EC;
+            --cream:    #FAF0DC;
+            --charcoal: #2C2C2C;
+            --muted:    #7A6A5A;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Lato', sans-serif; color: var(--charcoal); background: var(--ivory); }
+
+        /* TOP BAR */
+        .topbar { background: var(--maroon); padding: 7px 30px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,0.75); }
+        .topbar a { color: #f5c842; text-decoration: none; margin-left: 18px; font-size: 12px; }
+
+        /* NAV */
+        nav { background: #fff; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 999; border-bottom: 3px solid var(--saffron); box-shadow: 0 2px 16px rgba(107,26,26,0.08); }
+        .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; text-decoration: none; }
+        .brand-icon { width: 46px; height: 46px; background: var(--maroon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+        .brand-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--maroon); display: block; line-height: 1.2; }
+        .brand-sub  { font-size: 10px; color: var(--saffron); text-transform: uppercase; letter-spacing: 1.5px; }
+        .nav-links  { display: flex; align-items: center; gap: 2px; }
+        .nav-links a { color: var(--charcoal); padding: 8px 13px; text-decoration: none; font-size: 13px; font-weight: 700; transition: color 0.2s; position: relative; }
+        .nav-links a::after { content:''; position:absolute; bottom:0; left:13px; right:13px; height:2px; background:var(--saffron); transform:scaleX(0); transition:transform 0.2s; }
+        .nav-links a:hover { color: var(--maroon); }
+        .nav-links a:hover::after { transform: scaleX(1); }
+        .nav-donate { background: var(--maroon) !important; color: white !important; padding: 9px 20px !important; border-radius: 3px; margin-left: 8px; }
+        .nav-donate:hover { background: var(--saffron) !important; }
+        .nav-donate::after { display: none !important; }
+
+        /* PAGE HERO */
+        .page-hero { background: linear-gradient(to bottom right, #3d0d0d, var(--maroon) 50%, #8B3A0A); color: white; text-align: center; padding: 65px 24px 55px; position: relative; overflow: hidden; }
+        .page-hero::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,0.012) 60px,rgba(255,255,255,0.012) 120px); }
+        .breadcrumb { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+        .breadcrumb a { color: #f5c842; text-decoration: none; }
+        .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px,5vw,50px); font-weight: 700; margin-bottom: 12px; }
+        .page-hero h1 em { font-style: italic; color: #f5c842; }
+        .page-hero p { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 520px; margin: 0 auto; font-weight: 300; line-height: 1.7; }
+
+        /* STICKY TABS */
+        .sticky-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding: 14px 16px; background: var(--cream); border-bottom: 1px solid #E2D8CC; position: sticky; top: 59px; z-index: 99; }
+        .tab-btn { padding: 11px 22px; border: 1.5px solid var(--maroon); background: transparent; color: var(--maroon); font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: all 0.2s; border-radius: 2px; }
+        .tab-btn:hover { background: var(--maroon); color: white; }
+        .tab-short { display: none; }
+        @media (max-width: 768px) {
+            .sticky-tabs { gap: 5px; padding: 10px 8px; }
+            .tab-btn { padding: 10px 14px; font-size: 12px; letter-spacing: 0.5px; border-radius: 2px; }
+            .tab-full { display: none; }
+            .tab-short { display: inline; }
+        }
+
+        /* SECTION COMMON */
+        .section { padding: 70px 24px; }
+        .section.alt { background: var(--cream); }
+        .section-head { text-align: center; margin-bottom: 48px; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--saffron); margin-bottom: 10px; display: block; }
+        .gold-div { display:flex; align-items:center; gap:12px; max-width:160px; margin:0 auto 12px; }
+        .gold-div::before,.gold-div::after { content:''; flex:1; height:1px; background:var(--gold); }
+        .gold-div span { color:var(--gold); font-size:15px; }
+        .section-head h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px,4vw,36px); color: var(--maroon); margin-bottom: 14px; }
+        .section-head p { color: var(--muted); font-size: 15px; max-width: 540px; margin: 0 auto; line-height: 1.8; font-weight: 300; }
+
+        /* ── 1. SPONSOR ── */
+        .sponsor-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; max-width: 960px; margin: 0 auto; }
+        .sponsor-card { background: white; border-top: 4px solid var(--saffron); padding: 30px 24px; flex: 1; min-width: 210px; max-width: 250px; text-align: center; box-shadow: 0 2px 18px rgba(107,26,26,0.06); transition: all 0.25s; position: relative; overflow: hidden; }
+        .sponsor-card:hover { transform: translateY(-5px); box-shadow: 0 8px 32px rgba(107,26,26,0.12); }
+        .sponsor-card.popular { border-top-color: var(--maroon); }
+        .popular-tag { position: absolute; top: 14px; right: -20px; background: var(--maroon); color: white; font-size: 10px; font-weight: 700; padding: 4px 28px; transform: rotate(35deg); letter-spacing: 1px; }
+        .sponsor-card .s-icon { font-size: 38px; margin-bottom: 12px; }
+        .sponsor-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--maroon); margin-bottom: 8px; }
+        .sponsor-card .price { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--saffron); margin: 10px 0; }
+        .sponsor-card .price span { font-family: 'Lato', sans-serif; font-size: 13px; color: var(--muted); font-weight: 400; }
+        .sponsor-card ul { list-style: none; text-align: left; margin: 12px 0 20px; }
+        .sponsor-card ul li { font-size: 13px; color: var(--muted); padding: 5px 0; border-bottom: 1px solid var(--ivory); }
+        .sponsor-card ul li::before { content: "✓ "; color: var(--saffron); font-weight: 700; }
+        .sponsor-btn { width: 100%; background: var(--maroon); color: white; border: none; padding: 12px; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.2s; }
+        .sponsor-btn:hover { background: var(--saffron); }
+
+        /* Sponsor Popup */
+        .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 2000; justify-content: center; align-items: center; }
+        .popup-overlay.show { display: flex; }
+        .popup-box { background: white; padding: 36px 30px; max-width: 400px; width: 92%; border-top: 5px solid var(--saffron); box-shadow: 0 10px 50px rgba(0,0,0,0.2); position: relative; }
+        .popup-box h3 { font-family: 'Playfair Display', serif; color: var(--maroon); font-size: 22px; margin-bottom: 6px; }
+        .popup-sub { color: var(--muted); font-size: 13px; margin-bottom: 22px; }
+        .popup-close-x { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 22px; cursor: pointer; color: #ccc; }
+        .f { margin-bottom: 14px; }
+        .f label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+        .f input, .f select { width: 100%; padding: 10px 13px; border: 1.5px solid #E2D8CC; font-size: 14px; font-family: 'Lato', sans-serif; outline: none; background: var(--ivory); border-radius: 2px; transition: border-color 0.2s; }
+        .f input:focus, .f select:focus { border-color: var(--saffron); }
+        .popup-submit { width: 100%; background: var(--maroon); color: white; border: none; padding: 13px; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 2px; margin-top: 6px; transition: background 0.2s; }
+        .popup-submit:hover { background: var(--saffron); }
+        .popup-success { display: none; text-align: center; padding: 20px 0; }
+        .popup-success .big { font-size: 54px; }
+        .popup-success h3 { color: #2e7d32; font-family: 'Playfair Display', serif; margin: 10px 0 8px; }
+        .popup-success p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+        /* ── 2. STORIES ── */
+        .stories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 24px; max-width: 980px; margin: 0 auto; }
+        .story-card { background: white; border-top: 4px solid var(--saffron); box-shadow: 0 2px 16px rgba(107,26,26,0.07); overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+        .story-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(107,26,26,0.12); }
+        .story-img { height: 170px; display: flex; align-items: center; justify-content: center; font-size: 68px; }
+        .story-body { padding: 20px; }
+        .story-tag { display: inline-block; background: var(--cream); color: var(--saffron); font-size: 10px; font-weight: 700; padding: 3px 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; border: 1px solid #E2D8CC; }
+        .story-body h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--maroon); margin-bottom: 8px; }
+        .story-body p { font-size: 13px; color: var(--muted); line-height: 1.72; margin-bottom: 14px; font-weight: 300; }
+        .story-meta { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #bbb; }
+        .story-badge { background: #f0faf4; color: #2e7d32; padding: 3px 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+
+        /* ── 3. OCCASION ── */
+        .occasion-wrap { max-width: 700px; margin: 0 auto; }
+        .occasion-grid { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 36px; }
+        .occ-card { background: white; border: 2px solid #E2D8CC; padding: 20px 16px; text-align: center; flex: 1; min-width: 120px; max-width: 145px; cursor: pointer; transition: all 0.2s; border-radius: 2px; }
+        .occ-card:hover, .occ-card.sel { border-color: var(--maroon); background: var(--ivory); transform: translateY(-3px); box-shadow: 0 4px 16px rgba(107,26,26,0.1); }
+        .occ-card .oi { font-size: 32px; margin-bottom: 8px; }
+        .occ-card h4 { font-size: 13px; color: var(--charcoal); font-weight: 700; }
+        .occ-form { background: white; border-top: 4px solid var(--saffron); padding: 30px; box-shadow: 0 2px 18px rgba(107,26,26,0.07); }
+        .occ-form h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--maroon); margin-bottom: 18px; text-align: center; }
+        .occ-selected { background: var(--cream); border: 1.5px solid var(--gold); color: var(--maroon); padding: 9px 16px; font-weight: 700; font-size: 14px; text-align: center; margin-bottom: 18px; }
+        .cert-box { background: var(--cream); border: 2px dashed var(--gold); padding: 18px; text-align: center; margin: 16px 0; }
+        .cert-box .ci { font-size: 32px; }
+        .cert-box p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+        .cert-box strong { color: var(--maroon); }
+        .occ-btn { width: 100%; background: var(--maroon); color: white; border: none; padding: 13px; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 2px; margin-top: 8px; transition: background 0.2s; }
+        .occ-btn:hover { background: var(--saffron); }
+        .occ-success { display: none; text-align: center; padding: 30px 20px; }
+        .occ-success .big { font-size: 56px; }
+        .occ-success h3 { font-family: 'Playfair Display', serif; color: #2e7d32; margin: 10px 0 8px; font-size: 22px; }
+        .occ-success p  { color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+        /* ── 4. WHATSAPP ── */
+        .wa-wrap { max-width: 640px; margin: 0 auto; background: white; border-top: 4px solid #25D366; box-shadow: 0 4px 28px rgba(0,0,0,0.08); overflow: hidden; }
+        .wa-top { background: linear-gradient(135deg, #128C7E, #25D366); padding: 28px; color: white; display: flex; align-items: center; gap: 18px; }
+        .wa-top .wi { font-size: 48px; }
+        .wa-top h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 4px; }
+        .wa-top p  { font-size: 14px; opacity: 0.9; font-weight: 300; }
+        .wa-benefits { padding: 24px 28px; border-bottom: 1px solid var(--cream); }
+        .wa-benefits h4 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+        .wa-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 14px; color: var(--charcoal); }
+        .wa-item span:first-child { font-size: 18px; flex-shrink: 0; }
+        .wa-form { padding: 26px 28px; }
+        .wa-form h4 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+        .wa-row { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+        .wa-row input { flex: 1; min-width: 160px; padding: 11px 14px; border: 1.5px solid #E2D8CC; font-size: 14px; font-family: 'Lato', sans-serif; outline: none; background: var(--ivory); border-radius: 2px; transition: border-color 0.2s; }
+        .wa-row input:focus { border-color: #25D366; }
+        .wa-checks { margin-bottom: 18px; }
+        .wa-checks p { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+        .wa-check { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 14px; color: var(--charcoal); cursor: pointer; }
+        .wa-check input[type=checkbox] { width: 16px; height: 16px; accent-color: #25D366; cursor: pointer; }
+        .wa-sub-btn { width: 100%; background: #25D366; color: white; border: none; padding: 13px; font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; cursor: pointer; border-radius: 2px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s; }
+        .wa-sub-btn:hover { background: #20c25a; }
+        .wa-success { display: none; text-align: center; padding: 22px; background: #f0faf4; border-radius: 2px; margin-top: 14px; }
+        .wa-success .big { font-size: 44px; }
+        .wa-success h4 { font-family: 'Playfair Display', serif; color: #2e7d32; margin: 8px 0 6px; font-size: 18px; }
+        .wa-success p  { color: var(--muted); font-size: 13px; }
+
+        /* FIELD REUSE */
+        .field { margin-bottom: 16px; }
+        .field label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+        .field input, .field select, .field textarea { width: 100%; padding: 11px 14px; border: 1.5px solid #E2D8CC; font-size: 14px; font-family: 'Lato', sans-serif; color: var(--charcoal); background: var(--ivory); outline: none; transition: border-color 0.2s; border-radius: 2px; }
+        .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--saffron); }
+
+        /* FOOTER */
+        footer { background: #140808; color: rgba(255,255,255,0.45); padding: 50px 24px 24px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; max-width: 960px; margin: 0 auto 36px; }
+        .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 22px; color: white; display: block; margin-bottom: 12px; }
+        .footer-brand p { font-size: 13px; line-height: 1.8; max-width: 270px; }
+        .footer-col h4 { color: var(--saffron); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+        .footer-col a { display: block; color: rgba(255,255,255,0.45); text-decoration: none; font-size: 13px; margin-bottom: 9px; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--saffron); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 20px; text-align: center; font-size: 12px; max-width: 960px; margin: 0 auto; }
+
+        .float-donate { position: fixed !important; bottom: 24px !important; right: 24px !important; background: var(--maroon); color: white; padding: 13px 22px; border-radius: 3px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; box-shadow: 0 4px 20px rgba(107,26,26,0.5); z-index: 9999 !important; transition: background 0.2s; pointer-events: all !important; }
+        .float-donate:hover { background: var(--saffron); }
+
+        @media (max-width: 768px) {
+            .topbar, .nav-links { display: none; }
+            .sponsor-card { min-width: 160px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            .wa-top { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init('sZBECwrAvtRRy0pQt');</script>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <span>🐄 &nbsp; Gau Raksha · Gau Seva · Gau Prem</span>
+    <div>
+        <a href="tel:9719529986">📞 9719529986</a>
+        <a href="/cdn-cgi/l/email-protection#f09e919e94999e99de949f9e9184999f9e83b0979d91999cde939f9d">✉ <span class="__cf_email__" data-cfemail="67090609030e090e4903080906130e08091427000a060e0b4904080a">[email&#160;protected]</span></a>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav>
+    <a href="Index.html" class="nav-brand">
+        <div class="brand-icon">🐄</div>
+        <div>
+            <span class="brand-name">Nandini Dharmartha Gau Seva Trust</span>
+            <span class="brand-sub">Gau Seva Sansthan · Est. 2024</span>
+        </div>
+    </a>
+    <div class="nav-links">
+        <a href="Index.html">Home</a>
+        <a href="Index.html#mission">About</a>
+        <a href="ourwork.html">Our Work</a>
+        <a href="features.html">Support Us</a>
+        <a href="Index.html#location">Location</a>
+        <a href="Index.html#contact">Contact</a>
+        <a href="donate.html" class="nav-donate">Donate Now</a>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+    <div class="breadcrumb"><a href="Index.html">Home</a> &nbsp;›&nbsp; Support Us</div>
+    <h1>Ways to <em>Support</em> Gau Mata</h1>
+    <p>Sponsor a cow, celebrate special occasions, read rescue stories, and stay connected with us — every action matters.</p>
+</div>
+
+<!-- STICKY TABS -->
+<div class="sticky-tabs">
+    <a href="#sponsor"  class="tab-btn"><span class="tab-full">🐄 Sponsor a Cow</span><span class="tab-short">🐄 Sponsor</span></a>
+    <a href="#stories"  class="tab-btn"><span class="tab-full">📖 Cow Stories</span><span class="tab-short">📖 Stories</span></a>
+    <a href="#occasion" class="tab-btn"><span class="tab-full">🎂 Special Occasion</span><span class="tab-short">🎂 Occasion</span></a>
+    <a href="#whatsapp" class="tab-btn"><span class="tab-full">💬 WhatsApp Updates</span><span class="tab-short">💬 WhatsApp</span></a>
+</div>
+
+
+<!-- ══ 1. SPONSOR ══ -->
+<div class="section" id="sponsor">
+    <div class="section-head">
+        <span class="section-label">Sponsor a Cow</span>
+        <div class="gold-div"><span>❧</span></div>
+        <h2>Give a Cow a Safe Life</h2>
+        <p>Choose a sponsorship plan and receive monthly photos & personal updates of your sponsored cow!</p>
+    </div>
+    <div class="sponsor-grid">
+        <div class="sponsor-card">
+            <div class="s-icon">🌾</div>
+            <h3>Feed a Cow</h3>
+            <div class="price">₹500 <span>/ month</span></div>
+            <ul>
+                <li>Feed 1 cow </li>
+                <li>Monthly photo update</li>
+                <li>Digital certificate</li>
+                <li>80G tax receipt</li>
+            </ul>
+            <button class="sponsor-btn" onclick="window.location.href='donate.html'">Sponsor Now</button>
+        </div>
+        <div class="sponsor-card popular">
+            <div class="popular-tag">Popular</div>
+            <div class="s-icon">💊</div>
+            <h3>Care for a Cow</h3>
+            <div class="price">₹3,500 <span>/ month</span></div>
+            <ul>
+                <li>Food + full medical care</li>
+                <li>Monthly photo + video</li>
+                <li>80G tax receipt</li>
+            </ul>
+            <button class="sponsor-btn" onclick="window.location.href='donate.html'">Sponsor Now</button>
+        </div>
+        <div class="sponsor-card">
+            <div class="s-icon">🏠</div>
+            <h3>Adopt a Cow</h3>
+            <div class="price">₹5,000 <span>/ month</span></div>
+            <ul>
+                <li>Full shelter + food + care</li>
+                <li>Weekly WhatsApp updates</li>
+                <li>Gaushala visit invite</li>
+                <li>80G tax receipt</li>
+            </ul>
+            <button class="sponsor-btn" onclick="window.location.href='donate.html'">Sponsor Now</button>
+        </div>
+        <div class="sponsor-card">
+            <div class="s-icon">🤲</div>
+            <h3>Poor People Helping</h3>
+            <div class="price">₹2,550 <span>50 Thali</span></div>
+            <ul>
+                <li>Feed 50 underprivileged people</li>
+                <li>Impact story + photos</li>
+                <li>Special donor recognition</li>
+                <li>80G tax receipt</li>
+            </ul>
+            <button class="sponsor-btn" onclick="window.location.href='donate.html'">Donate Now</button>
+        </div>
+    </div>
+</div>
+
+<!-- Sponsor Popup -->
+<div class="popup-overlay" id="sponsorPopup">
+    <div class="popup-box">
+        <button class="popup-close-x" onclick="closeSponsor()">✕</button>
+        <div id="spForm">
+            <h3>🐄 Sponsor a Cow</h3>
+            <p class="popup-sub" id="spLabel">—</p>
+            <div class="f"><label>Full Name *</label><input type="text" id="sp-name" placeholder="Your name"></div>
+            <div class="f"><label>Phone *</label><input type="tel" id="sp-phone" placeholder="10-digit number"></div>
+            <div class="f"><label>Email</label><input type="email" id="sp-email" placeholder="email@example.com"></div>
+            <div class="f"><label>City</label><input type="text" id="sp-city" placeholder="Your city"></div>
+            <button class="popup-submit" onclick="submitSponsor()">Confirm Sponsorship</button>
+        </div>
+        <div class="popup-success" id="spSuccess">
+            <div class="big">🎉</div>
+            <h3>Thank You!</h3>
+            <p>Your sponsorship has been confirmed! Our team will contact you shortly. The first cow photo will be sent to your WhatsApp soon! 🐄</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ══ 2. STORIES ══ -->
+<div class="section alt" id="stories">
+    <div class="section-head">
+        <span class="section-label">Rescued & Recovering</span>
+        <div class="gold-div"><span>❧</span></div>
+        <h2>Stories of Our Cows</h2>
+        <p>Real stories of cows we have rescued and cared for. Your donations made these stories possible.</p>
+    </div>
+    <div class="stories-grid">
+        <div class="story-card">
+            <div class="story-img" style="background:linear-gradient(135deg,#fff3e0,#fce4ec);">🐄</div>
+            <div class="story-body">
+                <span class="story-tag">Rescued</span>
+                <h3>Kamdhenu's Story</h3>
+                <p>Kamdhenu was found injured after an accident, with wounds on three of her legs. Our team rescued her and provided three months of intensive medical care. Today she is completely healthy and thriving! 🐄</p>
+                <div class="story-meta"><span>📅 January 2026</span><span class="story-badge">✅ Recovered</span></div>
+            </div>
+        </div>
+        <div class="story-card">
+            <div class="story-img" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">🐮</div>
+            <div class="story-body">
+                <span class="story-tag">Abandoned</span>
+                <h3>Nandini's New Life</h3>
+                <p>Nandini was found abandoned alone in a field — severely weak and starving. We brought her to the gaushala and nursed her back to health. She now eats happily from our volunteers' hands and is loved by all! 😄</p>
+                <div class="story-meta"><span>📅 February 2026</span><span class="story-badge">✅ Happy</span></div>
+            </div>
+        </div>
+        <div class="story-card">
+            <div class="story-img" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">🐄</div>
+            <div class="story-body">
+                <span class="story-tag">old cow</span>
+                <h3>serving an old cow</h3>
+                <p>An old cow once lived near our village, weak and tired after years of hard life. Many people ignored her, but we decided to take care of her. Every day, we gave her fresh food, clean water, and a safe place to rest. Slowly, she became healthier and her eyes began to shine again. Taking care of her taught us kindness, compassion, and the importance of helping those who cannot help themselves.
+                <div class="story-meta"><span>📅 March 2026</span><span class="story-badge">saving an old cow</span></div>
+            </div>
+        </div>
+        <div class="story-card">
+            <div class="story-img" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">🐄</div>
+            <div class="story-body">
+                <span class="story-tag">Medical Care</span>
+                <h3>Gauri's Victory</h3>
+                <p>Gauri was suffering from a serious skin infection when she arrived. Our vet, Dr. Ramesh, treated her continuously for six weeks. Her remarkable recovery moved everyone at the gaushala to tears — a true victory! 💪</p>
+                <div class="story-meta"><span>📅 December 2025</span><span class="story-badge">✅ Cured</span></div>
+            </div>
+        </div>
+        <div class="story-card">
+            <div class="story-img" style="background:linear-gradient(135deg,#fff9c4,#fff59d);">🐄</div>
+            <div class="story-body">
+                <span class="story-tag">Rescued</span>
+                <h3>Lakshmi — A New Dawn</h3>
+                <p>Lakshmi was rescued from an illegal slaughterhouse and arrived frightened and deeply traumatised. Our caregivers showered her with patience and love. Today she is the most calm and gentle cow in our gaushala. ❤️</p>
+                <div class="story-meta"><span>📅 November 2025</span><span class="story-badge">✅ Trusts Us</span></div>
+            </div>
+        </div>
+        <div class="story-card">
+            <div class="story-img" style="background:linear-gradient(135deg,#ede7f6,#d1c4e9);">🐮</div>
+            <div class="story-body">
+                <span class="story-tag">Elderly</span>
+                <h3>Shyama — A Peaceful Old Age</h3>
+                <p>Shyama is an 18-year-old cow who was abandoned by her owner. She has become the "grandmother" of our gaushala — always keeping a watchful, caring eye over all the younger calves! 🥰</p>
+                <div class="story-meta"><span>📅 October 2025</span><span class="story-badge">🏡 Forever Home</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ══ 3. OCCASION ══ -->
+<div class="section" id="occasion">
+    <div class="section-head">
+        <span class="section-label">Celebrate with Purpose</span>
+        <div class="gold-div"><span>❧</span></div>
+        <h2>Donate on a Special Occasion</h2>
+        <p>Celebrate your special moments by donating in honour of someone you love. Receive a beautiful e-certificate!</p>
+    </div>
+    <div class="occasion-wrap">
+        <div class="occasion-grid">
+            <div class="occ-card" onclick="window.location.href='donate.html'"><div class="oi">🎂</div><h4>Birthday</h4></div>
+            <div class="occ-card" onclick="window.location.href='donate.html'"><div class="oi">💍</div><h4>Anniversary</h4></div>
+            <div class="occ-card" onclick="window.location.href='donate.html'"><div class="oi">🙏</div><h4>Navratri</h4></div>
+            <div class="occ-card" onclick="window.location.href='donate.html'"><div class="oi">🐄</div><h4>Gau Puja</h4></div>
+            <div class="occ-card" onclick="window.location.href='donate.html'"><div class="oi">🌟</div><h4>In Memory</h4></div>
+            <div class="occ-card" onclick="window.location.href='donate.html'"><div class="oi">🎉</div><h4>Other</h4></div>
+            <p style="text-align:center; color:var(--muted); font-size:13px; margin-top:10px;">👆 Click any occasion to proceed to the donation page</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ══ 4. WHATSAPP ══ -->
+<div class="section alt" id="whatsapp">
+    <div class="section-head">
+        <span class="section-label">Stay Connected</span>
+        <div class="gold-div"><span>❧</span></div>
+        <h2>WhatsApp Updates</h2>
+        <p>Subscribe and get monthly rescue stories, photos, and impact updates directly on WhatsApp — free!</p>
+    </div>
+    <div class="wa-wrap">
+        <div class="wa-top">
+            <div class="wi">💬</div>
+            <div>
+                <h3>Stay Connected with Gau Seva</h3>
+                <p>Monthly updates on WhatsApp — free!</p>
+            </div>
+        </div>
+        <div class="wa-benefits">
+            <h4>what will you get.</h4>
+            <div class="wa-item"><span>🐄</span><span>Rescued cows monthly photos & stories</span></div>
+            <div class="wa-item"><span>📊</span><span>Impact update</span></div>
+            <div class="wa-item"><span>🎉</span><span>Special events and campaigns information </span></div>
+            <div class="wa-item"><span>💛</span><span>Your sponsored cow information</span></div>
+            <div class="wa-item"><span>🔕</span><span>unsubscribe</span></div>
+        </div>
+        <div class="wa-form">
+            <h4>Subscribe Now — Free!</h4>
+            <div class="wa-row">
+                <input type="text" id="wa-name" placeholder="Your name">
+                <input type="tel" id="wa-phone" placeholder="WhatsApp number (10-digit)">
+            </div>
+            <div class="wa-checks">
+                <p>Kaunsi updates chahiye?</p>
+                <label class="wa-check"><input type="checkbox" checked> 🐄 Monthly rescue stories</label>
+                <label class="wa-check"><input type="checkbox" checked> 📸 Cow photos & videos</label>
+                <label class="wa-check"><input type="checkbox"> 🎉 Events & campaigns</label>
+                <label class="wa-check"><input type="checkbox"> 💛 Donation reminders</label>
+            </div>
+            <button class="wa-sub-btn" onclick="subscribeWA()">💬 &nbsp; Subscribe on WhatsApp</button>
+            <div class="wa-success" id="waSuccess">
+                <div class="big">🎉</div>
+                <h4>Subscribed!</h4>
+                <p>Thank you, <strong id="wa-name-out"></strong>! Your number has been added. Your first update will arrive soon. 🐄</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <span class="footer-brand-name">🐄 Nandini Dharmartha Gau Seva Trust</span>
+            <p>A registered Gau Seva Sansthan dedicated to the rescue, rehabilitation and lifelong care of cows. All donations are tax-exempt under Section 80G.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="Index.html">Home</a>
+            <a href="Index.html#mission">About Us</a>
+            <a href="Index.html#gallery">Gallery</a>
+            <a href="Index.html#location">Location</a>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <a href="donate.html">Donate Now</a>
+            <a href="#sponsor">Sponsor a Cow</a>
+            <a href="#occasion">Special Occasion</a>
+            <a href="#whatsapp">WhatsApp Updates</a>
+            <a href="Index.html#volunteer">Volunteer</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Nandini Dharmartha Gau Seva Trust · All Rights Reserved &nbsp;|&nbsp; Made with ❤️ for Gau Mata</p>
+    </div>
+</footer>
+
+<a href="donate.html" class="float-donate">💛 Donate Now</a>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // SPONSOR
+    function openSponsor(plan, price) {
+        document.getElementById('spLabel').textContent = plan + ' — ' + price;
+        document.getElementById('spForm').style.display = 'block';
+        document.getElementById('spSuccess').style.display = 'none';
+        document.getElementById('sponsorPopup').classList.add('show');
+    }
+    function closeSponsor() { document.getElementById('sponsorPopup').classList.remove('show'); }
+    function submitSponsor() {
+        var n = document.getElementById('sp-name').value.trim();
+        var p = document.getElementById('sp-phone').value.trim();
+        var e = document.getElementById('sp-email').value.trim();
+        var c = document.getElementById('sp-city').value.trim();
+        var plan = document.getElementById('spLabel').textContent;
+        if (!n) { alert('Please enter your name.'); return; }
+        if (!p || p.length !== 10 || isNaN(p)) { alert('Please enter a valid 10-digit number.'); return; }
+
+        var btn = document.querySelector('.popup-submit');
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+
+        emailjs.send('service_jg47vfo', 'template_yotfv9k', {
+            name:    n,
+            email:   e || 'Not provided',
+            phone:   p,
+            city:    c || 'Not provided',
+            title:   'New Cow Sponsorship',
+            message: 'Sponsorship Plan: ' + plan,
+            time:    new Date().toLocaleString('en-IN'),
+            rating:  '---'
+        }).then(function() {
+            document.getElementById('spForm').style.display = 'none';
+            document.getElementById('spSuccess').style.display = 'block';
+            btn.disabled = false;
+            btn.textContent = 'Confirm Sponsorship';
+            setTimeout(function() { closeSponsor(); window.location.href = 'donate.html'; }, 3000);
+        }, function(err) {
+            alert('Something went wrong. Please try again!');
+            console.log('EmailJS Error:', err);
+            btn.disabled = false;
+            btn.textContent = 'Confirm Sponsorship';
+        });
+    }
+
+    // OCCASION
+    var selOcc = '';
+    function selectOcc(el, name) {
+        document.querySelectorAll('.occ-card').forEach(function(c){c.classList.remove('sel');});
+        el.classList.add('sel'); selOcc = name;
+        document.getElementById('occLabel').textContent = 'Selected: ' + name;
+    }
+    function submitOcc() {
+        if (!selOcc) { alert('Please select an occasion first!'); return; }
+        var n = document.getElementById('occ-name').value.trim();
+        var p = document.getElementById('occ-phone').value.trim();
+        var e = document.getElementById('occ-email').value.trim();
+        var a = document.getElementById('occ-amt').value;
+        if (!n || !p || !e || !a) { alert('Please fill all required fields.'); return; }
+        if (p.length !== 10 || isNaN(p)) { alert('Please enter a valid 10-digit number.'); return; }
+        document.getElementById('occFields').style.display = 'none';
+        document.getElementById('occSuccess').style.display = 'block';
+    }
+
+    /
+</script>
+</body>
+</html>

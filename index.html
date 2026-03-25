@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandini Dharmartha Gau Seva Trust — Gau Seva Sansthan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --maroon:   #6B1A1A;
+            --maroon2:  #8B2020;
+            --saffron:  #D4780A;
+            --gold:     #C9922A;
+            --ivory:    #FDF6EC;
+            --cream:    #FAF0DC;
+            --charcoal: #2C2C2C;
+            --muted:    #7A6A5A;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Lato', sans-serif; color: var(--charcoal); background: var(--ivory); }
+
+        /* TOP BAR */
+        .topbar {
+            background: var(--maroon);
+            padding: 7px 30px;
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 12px; color: rgba(255,255,255,0.75);
+        }
+        .topbar a { color: #f5c842; text-decoration: none; margin-left: 18px; font-size: 12px; }
+
+        /* NAV */
+        nav {
+            background: #fff;
+            padding: 0 30px;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 999;
+            border-bottom: 3px solid var(--saffron);
+            box-shadow: 0 2px 16px rgba(107,26,26,0.08);
+        }
+        .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; text-decoration: none; }
+        .brand-icon { width: 46px; height: 46px; background: var(--maroon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+        .brand-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--maroon); display: block; line-height: 1.2; }
+        .brand-sub  { font-size: 10px; color: var(--saffron); text-transform: uppercase; letter-spacing: 1.5px; }
+        .nav-links  { display: flex; align-items: center; gap: 2px; }
+        .nav-links a { color: var(--charcoal); padding: 8px 13px; text-decoration: none; font-size: 13px; font-weight: 700; transition: color 0.2s; position: relative; }
+        .nav-links a::after { content:''; position:absolute; bottom:0; left:13px; right:13px; height:2px; background:var(--saffron); transform:scaleX(0); transition:transform 0.2s; }
+        .nav-links a:hover { color: var(--maroon); }
+        .nav-links a:hover::after { transform: scaleX(1); }
+        .nav-donate { background: var(--maroon) !important; color: white !important; padding: 9px 20px !important; border-radius: 3px; margin-left: 8px; }
+        .nav-donate:hover { background: var(--saffron) !important; }
+        .nav-donate::after { display: none !important; }
+
+        /* HERO */
+        .hero {
+            min-height: 92vh;
+            background: linear-gradient(to bottom, rgba(43,10,10,0.75) 0%, rgba(107,26,26,0.55) 60%, rgba(212,120,10,0.28) 100%), url('cow.jpg') center/cover no-repeat; isolation: isolate;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 60px 24px; position: relative; overflow: hidden; isolation: isolate;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 120px); pointer-events: none; z-index: 0;
+        }
+        .hero-badge { background: rgba(212,120,10,0.22); border: 1px solid rgba(212,120,10,0.5); color: #f5c842; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 6px 22px; border-radius: 30px; margin-bottom: 24px; backdrop-filter: blur(4px); }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(34px, 6vw, 66px); font-weight: 700; color: white; line-height: 1.15; margin-bottom: 12px; text-shadow: 0 2px 24px rgba(0,0,0,0.4); }
+        .hero h1 em { font-style: italic; color: #f5c842; }
+        .hero-sub { font-size: clamp(15px, 2vw, 18px); color: rgba(255,255,255,0.85); max-width: 540px; line-height: 1.75; margin-bottom: 38px; font-weight: 300; }
+        .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; position: relative; z-index: 100; }
+        .btn-primary { background: var(--saffron); color: white; padding: 14px 32px; border-radius: 3px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; transition: all 0.25s; box-shadow: 0 4px 20px rgba(212,120,10,0.4); position: relative; z-index: 100; pointer-events: all !important; display: inline-block; }
+        .btn-primary:hover { background: #b86609; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: white; padding: 14px 32px; border-radius: 3px; border: 2px solid rgba(255,255,255,0.55); text-decoration: none; font-weight: 700; font-size: 15px; transition: all 0.25s; position: relative; z-index: 100; pointer-events: all !important; display: inline-block; }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+        .hero-scroll { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.45); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent); animation: sp 2s infinite; }
+        @keyframes sp { 0%,100%{opacity:0.4;} 50%{opacity:1;} }
+
+        /* SECTION */
+        .section { padding: 72px 24px; }
+        .section.alt { background: var(--cream); }
+        .section-head { text-align: center; margin-bottom: 50px; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--saffron); margin-bottom: 10px; display: block; }
+        .gold-div { display: flex; align-items: center; gap: 12px; max-width: 160px; margin: 0 auto 12px; }
+        .gold-div::before, .gold-div::after { content: ''; flex: 1; height: 1px; background: var(--gold); }
+        .gold-div span { color: var(--gold); font-size: 15px; }
+        .section-head h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4vw, 36px); color: var(--maroon); margin-bottom: 14px; }
+        .section-head p { color: var(--muted); font-size: 15px; max-width: 540px; margin: 0 auto; line-height: 1.8; font-weight: 300; }
+
+        /* MISSION */
+        .mission-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; max-width: 960px; margin: 0 auto; }
+        .mission-card { background: white; padding: 32px 26px; border-top: 4px solid var(--saffron); box-shadow: 0 2px 18px rgba(107,26,26,0.06); transition: transform 0.25s, box-shadow 0.25s; }
+        .mission-card:hover { transform: translateY(-5px); box-shadow: 0 8px 32px rgba(107,26,26,0.12); }
+        .mission-card .card-icon { font-size: 34px; margin-bottom: 14px; }
+        .mission-card h3 { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--maroon); margin-bottom: 10px; }
+        .mission-card p { color: var(--muted); font-size: 14px; line-height: 1.78; }
+
+        /* COUNTER */
+        .counter-section { background: var(--maroon); padding: 65px 24px; position: relative; overflow: hidden; }
+        .counter-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E"); }
+        .counter-head { text-align: center; margin-bottom: 44px; }
+        .counter-head .section-label { color: rgba(255,255,255,0.5); }
+        .counter-head h2 { font-family: 'Playfair Display', serif; color: white; font-size: clamp(22px,4vw,34px); }
+        .counters { display: flex; justify-content: center; flex-wrap: wrap; max-width: 860px; margin: 0 auto; position: relative; }
+        .counter-box { flex: 1; min-width: 160px; text-align: center; padding: 20px 30px; border-right: 1px solid rgba(255,255,255,0.12); color: white; }
+        .counter-box:last-child { border-right: none; }
+        .counter-box .number { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: #f5c842; display: block; line-height: 1; }
+        .counter-box .label { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 8px; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        /* GALLERY */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; max-width: 960px; margin: 0 auto; }
+        .gallery-item { position: relative; overflow: hidden; aspect-ratio: 4/3; background: #e8ddd0; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+        .gallery-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .gallery-item:hover img { transform: scale(1.07); }
+        .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(107,26,26,0.75), transparent); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 16px; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay span { color: white; font-weight: 700; font-size: 14px; letter-spacing: 0.5px; }
+
+        /* VOLUNTEER */
+        .vol-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 960px; margin: 0 auto; align-items: start; }
+        .vol-info h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--maroon); margin-bottom: 14px; }
+        .vol-info > p { color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 24px; font-weight: 300; }
+        .vol-pt { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+        .pt-icon { background: var(--cream); border: 1px solid var(--gold); color: var(--saffron); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 15px; }
+        .pt-text strong { display: block; font-size: 14px; color: var(--charcoal); margin-bottom: 2px; }
+        .pt-text small { font-size: 13px; color: var(--muted); }
+        .vol-form { background: white; padding: 32px; box-shadow: 0 4px 28px rgba(107,26,26,0.08); border-top: 4px solid var(--saffron); }
+        .vol-form h4 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--maroon); margin-bottom: 22px; }
+        .field { margin-bottom: 16px; }
+        .field label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+        .field input, .field select, .field textarea { width: 100%; padding: 11px 14px; border: 1.5px solid #E2D8CC; font-size: 14px; font-family: 'Lato', sans-serif; color: var(--charcoal); background: var(--ivory); outline: none; transition: border-color 0.2s; border-radius: 2px; }
+        .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--saffron); }
+        .form-btn { width: 100%; background: var(--maroon); color: white; border: none; padding: 13px; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.2s; margin-top: 4px; }
+        .form-btn:hover { background: var(--saffron); }
+        .form-success { display: none; background: #f0faf4; border: 1px solid #a8d5b5; color: #2e7d32; padding: 13px; text-align: center; margin-top: 14px; font-weight: 700; font-size: 14px; }
+
+        /* LOCATION */
+        .loc-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; max-width: 980px; margin: 0 auto; align-items: start; }
+        .loc-info h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--maroon); margin-bottom: 22px; }
+        .loc-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 22px; }
+        .loc-icon { background: var(--maroon); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+        .loc-text strong { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--saffron); margin-bottom: 4px; }
+        .loc-text span { font-size: 14px; color: var(--muted); line-height: 1.7; }
+        .dir-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--saffron); color: white; padding: 12px 24px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; border-radius: 2px; transition: background 0.2s; margin-top: 6px; }
+        .dir-btn:hover { background: var(--maroon); }
+        .map-box { border-radius: 2px; overflow: hidden; box-shadow: 0 4px 24px rgba(107,26,26,0.12); border: 3px solid white; outline: 1px solid #e2d8cc; }
+        .map-box iframe { display: block; width: 100%; height: 370px; border: none; }
+
+        /* SOCIAL */
+        .social-section { background: var(--charcoal); padding: 55px 24px; text-align: center; }
+        .social-section h2 { font-family: 'Playfair Display', serif; color: white; font-size: 28px; margin-bottom: 8px; }
+        .social-section p { color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 28px; }
+        .social-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+        .soc-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; text-decoration: none; color: white; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; border-radius: 3px; transition: opacity 0.2s, transform 0.2s; }
+        .soc-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+        .soc-btn.wa { background: #25D366; }
+        .soc-btn.fb { background: #1877F2; }
+        .soc-btn.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+        .soc-btn.yt { background: #FF0000; }
+
+        /* FOOTER */
+        footer { background: #140808; color: rgba(255,255,255,0.45); padding: 50px 24px 24px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; max-width: 960px; margin: 0 auto 36px; }
+        .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 22px; color: white; display: block; margin-bottom: 12px; }
+        .footer-brand p { font-size: 13px; line-height: 1.8; max-width: 270px; }
+        .footer-col h4 { color: var(--saffron); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+        .footer-col a { display: block; color: rgba(255,255,255,0.45); text-decoration: none; font-size: 13px; margin-bottom: 9px; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--saffron); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 20px; text-align: center; font-size: 12px; max-width: 960px; margin: 0 auto; }
+
+        /* FLOAT */
+        .float-donate { position: fixed !important; bottom: 24px !important; right: 24px !important; background: var(--maroon); color: white; padding: 13px 22px; border-radius: 3px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; box-shadow: 0 4px 20px rgba(107,26,26,0.5); z-index: 9999 !important; transition: background 0.2s; pointer-events: all !important; }
+        .float-donate:hover { background: var(--saffron); }
+
+        /* FEEDBACK */
+        
+        
+        .fb-tab-inner span { writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); text-transform: uppercase; pointer-events: none; }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        @media (max-width: 768px) {
+            .topbar, .nav-links { display: none; }
+            .vol-wrap, .loc-wrap, .footer-grid { grid-template-columns: 1fr; }
+            .counters { flex-direction: column; }
+            .counter-box { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        }
+        /* INDEX STICKY TABS */
+        .index-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; padding: 10px 12px; background: var(--cream); border-bottom: 1px solid #E2D8CC; position: sticky; top: 59px; z-index: 99; }
+        .index-tab { padding: 8px 18px; border: 1.5px solid var(--maroon); background: transparent; color: var(--maroon); font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: all 0.2s; border-radius: 2px; }
+        .index-tab:hover { background: var(--maroon); color: white; }
+        .itab-full { display: inline; }
+        .itab-short { display: none; }
+        @media (max-width: 768px) {
+            .index-tabs { gap: 3px; padding: 6px 4px; }
+            .index-tab { padding: 7px 9px; font-size: 10px; letter-spacing: 0px; }
+            .itab-full { display: none; }
+            .itab-short { display: inline; }
+        }
+
+        /* ── FEEDBACK WIDGET ── */
+        #feedbackBtn {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #6B1A1A;
+            color: white;
+            border: none;
+            padding: 40px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 3px 0 12px rgba(0,0,0,0.3);
+            z-index: 10000;
+            writing-mode: vertical-rl;
+            transform: translateY(-50%) rotate(180deg);
+            font-family: 'Lato', sans-serif;
+        }
+        #feedbackBtn:hover { background: #D4780A; }
+
+        #feedbackBox {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 290px;
+            background: white;
+            border-radius: 0 14px 14px 0;
+            box-shadow: 6px 0 30px rgba(0,0,0,0.2);
+            z-index: 10001;
+            padding: 22px 18px;
+            border-top: 4px solid #D4780A;
+        }
+        #feedbackBox.active { display: block; }
+        .fbx-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
+        .fbx-head span { font-family:'Playfair Display',serif; font-size:15px; color:#6B1A1A; }
+        .fbx-close { background:none; border:none; font-size:22px; cursor:pointer; color:#aaa; line-height:1; }
+        .fbx-sub { font-size:12px; color:#7A6A5A; margin:4px 0 14px; }
+        .fbx-cows { display:flex; justify-content:space-between; gap:4px; margin-bottom:14px; }
+        .fbx-cow { flex:1; display:flex; flex-direction:column; align-items:center; cursor:pointer; padding:6px 3px; border-radius:6px; border:2px solid transparent; }
+        .fbx-cow:hover, .fbx-cow.picked { background:#fff5f0; border-color:#D4780A; }
+        .fbx-cow .icon { font-size:26px; }
+        .fbx-cow .lbl { font-size:9px; color:#bbb; margin-top:3px; font-weight:700; }
+        .fbx-cow.picked .lbl { color:#D4780A; }
+        .fbx-input { width:100%; border:1.5px solid #e2d8cc; border-radius:4px; padding:8px 10px; font-size:13px; font-family:'Lato',sans-serif; margin-bottom:8px; outline:none; display:block; background:#fff; color:#2C2C2C; }
+        .fbx-input:focus { border-color:#D4780A; }
+        #fbxText { width:100%; border:1.5px solid #e2d8cc; border-radius:4px; padding:9px; font-size:13px; font-family:'Lato',sans-serif; resize:none; margin-bottom:12px; outline:none; display:block; }
+        .fbx-submit { width:100%; background:#6B1A1A; color:white; border:none; padding:11px; font-family:'Lato',sans-serif; font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase; cursor:pointer; border-radius:3px; }
+        .fbx-submit:hover { background:#D4780A; }
+        #fbxThanks { display:none; text-align:center; color:#2e7d32; font-weight:700; font-size:13px; margin-top:10px; background:#f0faf4; padding:10px; border-radius:4px; }
+
+
+        /* BLOG SECTION */
+        .blog-section { padding: 72px 24px; background: var(--ivory); }
+        .blog-scroll-wrap { max-width: 960px; margin: 0 auto; overflow-x: auto; padding-bottom: 12px; }
+        .blog-scroll-wrap::-webkit-scrollbar { height: 4px; }
+        .blog-scroll-wrap::-webkit-scrollbar-track { background: #f1e8d8; }
+        .blog-scroll-wrap::-webkit-scrollbar-thumb { background: var(--saffron); border-radius: 2px; }
+        .blog-row { display: flex; gap: 20px; width: max-content; }
+        .blog-card { width: 260px; border-radius: 8px; overflow: hidden; position: relative; height: 320px; flex-shrink: 0; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.15); transition: transform 0.25s, box-shadow 0.25s; }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(0,0,0,0.25); }
+        .blog-card-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 100px; }
+        .blog-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.15) 100%); }
+        .blog-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px; }
+        .blog-tag { display: inline-block; background: var(--saffron); color: white; font-size: 9px; font-weight: 700; padding: 3px 10px; letter-spacing: 1px; text-transform: uppercase; border-radius: 20px; margin-bottom: 8px; }
+        .blog-card-content h3 { font-family: 'Playfair Display', serif; font-size: 15px; color: white; line-height: 1.4; margin-bottom: 6px; }
+        .blog-card-content .blog-date { font-size: 11px; color: rgba(255,255,255,0.6); }
+        /* BLOG POPUP */
+        .blog-popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 20px; }
+        .blog-popup-overlay.show { display: flex; }
+        .blog-popup-box { background: white; max-width: 500px; width: 100%; max-height: 85vh; overflow-y: auto; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .blog-popup-hero { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+        .blog-popup-body { padding: 24px; }
+        .blog-popup-body .blog-tag { background: var(--saffron); color: white; border-radius: 20px; font-size: 10px; }
+        .blog-popup-body h2 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--maroon); margin: 10px 0; line-height: 1.4; }
+        .blog-popup-body .blog-date { font-size: 12px; color: #bbb; margin-bottom: 16px; display: block; }
+        .blog-popup-body p { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
+        .blog-popup-close { width: 100%; background: var(--maroon); color: white; border: none; padding: 12px; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 0 0 8px 8px; margin-top: 8px; }
+    </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <span>🐄 &nbsp; Gau Raksha · Gau Seva · Gau Prem</span>
+    <div>
+        <a href="tel:9719529986">📞 9719529986</a>
+        <a href="/cdn-cgi/l/email-protection#543a353a303d3a3d7a303b3a35203d3b3a27143339353d387a373b39">✉ <span class="__cf_email__" data-cfemail="b6d8d7d8d2dfd8df98d2d9d8d7c2dfd9d8c5f6d1dbd7dfda98d5d9db">[email&#160;protected]</span></a>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav>
+    <a href="#home" class="nav-brand">
+        <div class="brand-icon">🐄</div>
+        <div>
+            <span class="brand-name">Nandini Dharmartha Gau Seva Trust</span>
+            <span class="brand-sub">Gau Seva Sansthan · Est. 2024</span>
+        </div>
+    </a>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#mission">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="ourwork.html">Our Work</a>
+        <a href="features.html">Support Us</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+        <a href="donate.html" class="nav-donate">Donate Now</a>
+    </div>
+</nav>
+
+<!-- SECTION TABS -->
+<div class="index-tabs">
+    <a href="#mission"   class="index-tab"><span class="itab-full">🙏 About Us</span><span class="itab-short">🙏 About</span></a>
+    <a href="#gallery"   class="index-tab"><span class="itab-full">🖼️ Gallery</span><span class="itab-short">🖼️ Gallery</span></a>
+    <a href="#volunteer" class="index-tab"><span class="itab-full">🤝 Volunteer</span><span class="itab-short">🤝 Vol</span></a>
+    <a href="#location"  class="index-tab"><span class="itab-full">📍 Location</span><span class="itab-short">📍 Loc</span></a>
+    <a href="#contact"   class="index-tab"><span class="itab-full">💬 Contact</span><span class="itab-short">💬 Contact</span></a>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="home">
+    <div class="hero-badge">🙏 &nbsp; Gau Mata Ki Seva &nbsp; 🙏</div>
+    <h1>Protecting <em>Sacred Lives,</em><br>One Cow at a Time</h1>
+    <p class="hero-sub">Nandini Dharmartha Gau Seva Trust rescues, rehabilitates, and cares for abandoned and injured cows — because every life deserves dignity and love.</p>
+    <div class="hero-btns">
+        <a href="donate.html" class="btn-primary">❤️ Donate Now</a>
+        <a href="features.html" class="btn-outline">🐄 Sponsor a Cow</a>
+    </div>
+    <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+</div>
+
+<!-- MISSION -->
+<div class="section" id="mission">
+    <div class="section-head">
+        <span class="section-label">Who We Are</span>
+        <div class="gold-div"><span>❧</span></div>
+        <h2>Our Sacred Mission</h2>
+        <p>We believe every cow deserves a life free from suffering. Since 2024, Nandini Dharmartha Gau Seva Trust has been at the forefront of cow rescue, care, and rehabilitation.</p>
+    </div>
+    <div class="mission-grid">
+        <div class="mission-card"><div class="card-icon">🤲</div><h3>Vriddhashram</h3><p>We provide food, clothing, and essential daily support to the most vulnerable and underprivileged families in our community — because every soul deserves dignity.</p></div>
+        <div class="mission-card"><div class="card-icon">💊</div><h3>Medical Care</h3><p>Qualified veterinarians and caregivers provide complete medical treatment, ensuring every rescued cow recovers fully and comfortably.</p></div>
+        <div class="mission-card"><div class="card-icon">🏠</div><h3>Safe Shelter</h3><p>Our gaushala provides a permanent, loving home with nutritious food, clean water, and daily care for every resident cow.</p></div>
+        <div class="mission-card"><div class="card-icon">📣</div><h3>Awareness</h3><p>We educate communities about cow welfare, inspiring thousands to become advocates for Gau Raksha across our region.</p></div>
+    </div>
+</div>
+
+<!-- OUR WORK -->
+<div class="section alt" id="ourwork">
+    <div class="section-head">
+        <span class="section-label">What We Do</span>
+        <div class="gold-div"><span>❧</span></div>
+        <h2>Our Work — Beyond Gau Seva</h2>
+        <p>Nandini Dharmartha Gau Seva Trust works across five causes — from protecting cows to empowering children education, caring for elders, sheltering the homeless, and healing our environment.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:18px; max-width:960px; margin:0 auto 36px;">
+
+        <a href="ourwork.html#education" style="text-decoration:none;">
+            <div class="mission-card" style="border-top-color:#2E7D32; cursor:pointer;">
+                <div class="card-icon">📚</div>
+                <h3 style="color:#2E7D32;">Unpriviledged Child Education</h3>
+                <p>Free school supplies, books & uniforms for children from Unprivileged families who cannot afford basic education material.</p>
+            </div>
+        </a>
+
+        <a href="ourwork.html#elderly" style="text-decoration:none;">
+            <div class="mission-card" style="border-top-color:#1565C0; cursor:pointer;">
+                <div class="card-icon">👴</div>
+                <h3 style="color:#1565C0;">Old Age Sahayata</h3>
+                <p>Food, medicines, clothing & companionship for elderly people living alone or abandoned without family support.</p>
+            </div>
+        </a>
+
+        <a href="ourwork.html#gauriya" style="text-decoration:none;">
+            <div class="mission-card" style="border-top-color:#6A1B9A; cursor:pointer;">
+                <div class="card-icon">🐦</div>
+                <h3 style="color:#6A1B9A;">Gauriya Seva</h3>
+                <p>We protect sparrows by providing food, clean water and safe nesting spaces — bringing गौरैया back to our lives.</p>
+            </div>
+        </a>
+
+        <a href="ourwork.html#environment" style="text-decoration:none;">
+            <div class="mission-card" style="border-top-color:#00695C; cursor:pointer;">
+                <div class="card-icon">🌿</div>
+                <h3 style="color:#00695C;">Environment</h3>
+                <p>Road & river cleaning drives, tree plantation, and anti-pollution awareness campaigns in our communities.</p>
+            </div>
+        </a>
+
+        <a href="ourwork.html#gauseva" style="text-decoration:none;">
+            <div class="mission-card" style="border-top-color:var(--saffron); cursor:pointer;">
+                <div class="card-icon">🐄</div>
+                <h3>Gau Seva</h3>
+                <p>Our core mission — 24/7 rescue, medical care & permanent shelter for abandoned and injured cows at our gaushala.</p>
+            </div>
+        </a>
+
+    </div>
+    <div style="text-align:center;">
+        <a href="ourwork.html" style="display:inline-block; background:var(--maroon); color:white; padding:13px 32px; text-decoration:none; font-weight:700; font-size:13px; letter-spacing:1px; text-transform:uppercase; border-radius:2px; transition:background 0.2s;" onmouseover="this.style.background='var(--saffron)'" onmouseout="this.style.background='var(--maroon)'">
+            View All Our Work →
+        </a>
+    </div>
+</div>
+
+<!-- COUNTER -->
+<div class="counter-section">
+    <div class="counter-head">
+        <span class="section-label">Our Impact</span>
+        <h2>Numbers That Speak</h2>
+    </div>
+    <div class="counters">
+        <div class="counter-box"><span class="number" data-target="500">0</span><span class="label">Cows Rescued</span></div>
+        <div class="counter-box"><span class="number" data-target="1200">0</span><span class="label">Generous Donors</span></div>
+        <div class="counter-box"><span class="number" data-target="80">0</span><span class="label">Volunteers</span></div>
+        <div class="counter-box"><span class="number" data-target="6">0</span><span class="label">Years of Seva</span></div>
+    </div>
+</div>
+
+<!-- GALLERY -->
+<div class="section alt" id="gallery">
+    <div class="section-head">
+        <span class="section-label">Our Gaushala</span>
+        <div class="gold-div"><span>❧</span></div>
+        <h2>A Glimpse of Our Work</h2>
+        <p>Moments from our rescue operations, medical care, and daily life at the gaushala.</p>
+    </div>
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="cow1.jpg" alt="Rescue" onerror="this.style.display='none'">🐄<div class="gallery-overlay"><span>Rescue Operation</span></div></div>
+        <div class="gallery-item"><img src="cow2.jpg" alt="Care"    onerror="this.style.display='none'">🐮<div class="gallery-overlay"><span>Medical Care</span></div></div>
+        <div class="gallery-item"><img src="cow3.jpg" alt="Shelter" onerror="this.style.display='none'">🐄<div class="gallery-overlay"><span>Life at Gaushala</span></div></div>
+    </div>
+</div>
+
+<!-- VOLUNTEER -->
+<div class="section" id="volunteer">
+    <div class="section-head">
+        <span class="section-label">Get Involved</span>
+        <div class="gold-div"><span>❧</span></div>
+        <h2>Join Our Seva</h2>
+    </div>
+    <div class="vol-wrap">
+        <div class="vol-info">
+            <h3>Be a Part of Something Greater</h3>
+            <p>Every volunteer brings us closer to a world where no cow is left abandoned or suffering. Whether you can spare an hour or a lifetime, your contribution matters.</p>
+            <div class="vol-pt"><div class="pt-icon">🏥</div><div class="pt-text"><strong>Medical Assistance</strong><small>Support our vets during rescue & treatment</small></div></div>
+            <div class="vol-pt"><div class="pt-icon">🌾</div><div class="pt-text"><strong>Daily Feeding & Care</strong><small>Help feed and groom the cows at gaushala</small></div></div>
+            <div class="vol-pt"><div class="pt-icon">📢</div><div class="pt-text"><strong>Awareness Campaigns</strong><small>Spread the word in your community</small></div></div>
+            <div class="vol-pt"><div class="pt-icon">💻</div><div class="pt-text"><strong>Social Media & Outreach</strong><small>Help us reach more donors online</small></div></div>
+        </div>
+        <div class="vol-form">
+            <h4>Register as Volunteer</h4>
+            <div class="field"><label>Full Name *</label><input type="text" id="v-name" placeholder="Your full name"></div>
+            <div class="field"><label>Phone Number *</label><input type="tel" id="v-phone" placeholder="10-digit number"></div>
+            <div class="field"><label>City *</label><input type="text" id="v-city" placeholder="Your city"></div>
+            <div class="field"><label>Area of Interest *</label>
+                <select id="v-role">
+                    <option value="">— Select —</option>
+                    <option>Rescue Operations</option>
+                    <option>Medical Assistance</option>
+                    <option>Feeding & Care</option>
+                    <option>Awareness Campaigns</option>
+                    <option>Social Media Help</option>
+                    <option>Fundraising</option>
+                </select>
+            </div>
+            <div class="field"><label>Message</label><textarea id="v-msg" rows="3" placeholder="Anything you'd like us to know…"></textarea></div>
+            <button class="form-btn" id="vol-btn" onclick="submitVolunteer()">Submit Application</button>
+            <div class="form-success" id="vol-success">🙏 Thank you! We will contact you shortly.</div>
+        </div>
+    </div>
+</div>
+
+<!-- LOCATION -->
+<div class="section alt" id="location">
+    <div class="section-head">
+        <span class="section-label">Find Us</span>
+        <div class="gold-div"><span>❧</span></div>
+        <h2>Visit Our Gaushala</h2>
+        <p>Come, meet our cows, witness our work firsthand, and experience the joy of Gau Seva.</p>
+    </div>
+    <div class="loc-wrap">
+        <div class="loc-info">
+            <h3>Nandini Gaushala</h3>
+            <div class="loc-detail">
+                <div class="loc-icon">📍</div>
+                <div class="loc-text"><strong>Office address</strong><span>Kalwari,<br>Hathras — 204101<br>Uttar Pradesh, India</span></div>
+            </div>
+            <div class="loc-detail">
+                <div class="loc-icon">🕐</div>
+                <div class="loc-text"><strong>Visiting Hours</strong><span>Monday – Saturday:10:00 AM – 5:00 PM<br>Sunday: 10:00 AM – 1:00 PM</span></div>
+            </div>
+            <div class="loc-detail">
+                <div class="loc-icon">📞</div>
+                <div class="loc-text"><strong>Contact</strong><span>+91 9719529986<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2d434c4349444344034942434c594442435e6d4a404c4441034e4240">[email&#160;protected]</a></span></div>
+            </div>
+            <div class="loc-detail">
+                <div class="loc-icon">🚗</div>
+                <div class="loc-text"><strong>How to Reach</strong><span>Auto / Taxi from City Bus Stand<br>10 minutes from Railway Station</span></div>
+            </div>
+            <a href="https://maps.app.goo.gl/YHC8ZgikQeePQE5y5" target="_blank" class="dir-btn">🗺️ &nbsp; Get Directions on Google Maps</a>
+        </div>
+        <div class="map-box">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.012!2d78.0500!3d27.5900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397485001a987f09%3A0xc04b918761c2d65c!2sNandini%20Dharmartha%20Gau%20Seva%20Trust!5e0!3m2!1sen!2sin!4v1700000000000"
+                allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+
+<!-- BLOG -->
+<div class="blog-section" id="blog">
+    <div class="section-head">
+        <span class="section-label">Latest Updates</span>
+        <div class="gold-div"><span>❧</span></div>
+        <h2>From Our Gaushala</h2>
+        <p>Stories, updates and moments from Nandini Trust — straight from the heart.</p>
+    </div>
+    <div class="blog-scroll-wrap">
+        <div class="blog-row">
+            <div class="blog-card" onclick="openBlog(0)">
+                <div class="blog-card-bg" style="background:linear-gradient(135deg,#4a1500,#8B2020);">🐄</div>
+                <div class="blog-card-overlay"></div>
+                <div class="blog-card-content">
+                    <span class="blog-tag">Rescue</span>
+                    <h3>Rescued from the Highway — Nandini's Journey Back to Life</h3>
+                    <div class="blog-date">📅 March 2026</div>
+                </div>
+            </div>
+            <div class="blog-card" onclick="openBlog(1)">
+                <div class="blog-card-bg" style="background:linear-gradient(135deg,#1a3a1a,#2E7D32);">🌾</div>
+                <div class="blog-card-overlay"></div>
+                <div class="blog-card-content">
+                    <span class="blog-tag">Gau Seva</span>
+                    <h3>How Your Donation Feeds 50 Cows Every Single Day</h3>
+                    <div class="blog-date">📅 February 2026</div>
+                </div>
+            </div>
+            <div class="blog-card" onclick="openBlog(2)">
+                <div class="blog-card-bg" style="background:linear-gradient(135deg,#3a0a1a,#880e4f);">🐣</div>
+                <div class="blog-card-overlay"></div>
+                <div class="blog-card-content">
+                    <span class="blog-tag">New Life</span>
+                    <h3>A Calf Born at Midnight — Chhotu's First Morning</h3>
+                    <div class="blog-date">📅 February 2026</div>
+                </div>
+            </div>
+            <div class="blog-card" onclick="openBlog(3)">
+                <div class="blog-card-bg" style="background:linear-gradient(135deg,#0a1a3a,#1565C0);">🏥</div>
+                <div class="blog-card-overlay"></div>
+                <div class="blog-card-content">
+                    <span class="blog-tag">Medical Care</span>
+                    <h3>6 Weeks of Treatment — Gauri's Incredible Recovery</h3>
+                    <div class="blog-date">📅 January 2026</div>
+                </div>
+            </div>
+            <div class="blog-card" onclick="openBlog(4)">
+                <div class="blog-card-bg" style="background:linear-gradient(135deg,#3a3000,#F57F17);">🙏</div>
+                <div class="blog-card-overlay"></div>
+                <div class="blog-card-content">
+                    <span class="blog-tag">Event</span>
+                    <h3>Makar Sankranti Gau Puja — 200 Devotees Joined Us</h3>
+                    <div class="blog-date">📅 January 2026</div>
+                </div>
+            </div>
+            <div class="blog-card" onclick="openBlog(5)">
+                <div class="blog-card-bg" style="background:linear-gradient(135deg,#0a2a1a,#00695C);">🌿</div>
+                <div class="blog-card-overlay"></div>
+                <div class="blog-card-content">
+                    <span class="blog-tag">Environment</span>
+                    <h3>500 Trees Planted — Our Green Drive in Hathras</h3>
+                    <div class="blog-date">📅 December 2025</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BLOG POPUP -->
+<div class="blog-popup-overlay" id="blogPopup">
+    <div class="blog-popup-box">
+        <div class="blog-popup-hero" id="blogPopupHero"></div>
+        <div class="blog-popup-body">
+            <span class="blog-tag" id="blogPopupTag"></span>
+            <h2 id="blogPopupTitle"></h2>
+            <span class="blog-date" id="blogPopupDate"></span>
+            <div id="blogPopupContent"></div>
+            <button class="blog-popup-close" onclick="document.getElementById('blogPopup').classList.remove('show')">✕ Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+var blogs = [
+    {
+        emoji: '🐄', bg: 'linear-gradient(135deg,#4a1500,#8B2020)',
+        tag: 'Rescue', date: '📅 March 2026',
+        title: "Rescued from the Highway — Nandini's Journey Back to Life",
+        content: "<p>A severely injured cow was found by one of our volunteers during the early morning hours. She had been struck by a vehicle and was unable to stand, with visible wounds on three of her legs.</p><p>Our rescue team arrived within the hour, provided first aid on the spot, and carefully transported her to our gaushala in Hathras. Dr. Ramesh began treatment immediately — cleaning wounds, setting splints, and administering pain relief.</p><p>Over the next three months, Nandini received daily care from our team. Today she walks freely, eats well, and has become one of the most beloved cows at our gaushala. <strong>Your support made this possible.</strong></p>"
+    },
+    {
+        emoji: '🌾', bg: 'linear-gradient(135deg,#1a3a1a,#2E7D32)',
+        tag: 'Gau Seva', date: '📅 February 2026',
+        title: "How Your Donation Feeds 50 Cows Every Single Day",
+        content: "<p>Many of our donors ask — where exactly does my money go? We believe in complete transparency, so here is a breakdown of how a typical monthly donation is used at Nandini Trust.</p><p><strong>60%</strong> goes towards fodder — green grass, dry hay, jaggery and mineral supplements for our 50+ cows. <strong>25%</strong> covers veterinary care — medicines, check-ups and emergency treatment. <strong>15%</strong> supports operational costs — water, electricity and facility maintenance.</p><p>Every rupee is tracked and reported. Thanks to our donors, not a single cow at our gaushala has gone hungry in over two years.</p>"
+    },
+    {
+        emoji: '🐣', bg: 'linear-gradient(135deg,#3a0a1a,#880e4f)',
+        tag: 'New Life', date: '📅 February 2026',
+        title: "A Calf Born at Midnight — Chhotu's First Morning",
+        content: "<p>At 11:45 PM on a cold February night, our night caretaker noticed that one of our rescued cows was in labour. Her condition was fragile — she had arrived at the gaushala just weeks earlier, severely malnourished and weak.</p><p>Our volunteers stayed up through the night, monitoring her closely. At 2:30 AM, Chhotu was born — a healthy male calf who let out his first cry to the sound of cheers from our tired but overjoyed team.</p><p>Both mother and calf are thriving today. Chhotu has become the darling of the gaushala — curious, playful, and full of life. <strong>He is living proof of what love and care can do.</strong></p>"
+    },
+    {
+        emoji: '🏥', bg: 'linear-gradient(135deg,#0a1a3a,#1565C0)',
+        tag: 'Medical Care', date: '📅 January 2026',
+        title: "6 Weeks of Treatment — Gauri's Incredible Recovery",
+        content: "<p>Gauri arrived at our gaushala in a terrible state — her entire body covered in a severe fungal skin infection that had gone untreated for months. She was weak, uncomfortable, and deeply distressed.</p><p>Our vet, Dr. Ramesh, immediately began a treatment plan — daily medicated baths, antifungal applications, and dietary supplements to boost her immune system. The process was slow and painstaking, requiring an hour of treatment every single day for six weeks.</p><p>By week four, new healthy skin had begun to appear. By week six, Gauri was a transformed cow — her coat gleaming, her eyes bright, her appetite back. <strong>Her recovery moved every single volunteer to tears.</strong></p>"
+    },
+    {
+        emoji: '🙏', bg: 'linear-gradient(135deg,#3a3000,#F57F17)',
+        tag: 'Event', date: '📅 January 2026',
+        title: "Makar Sankranti Gau Puja — 200 Devotees Joined Us",
+        content: "<p>This Makar Sankranti, Nandini Trust organised a special Gau Puja at our gaushala in Hathras. Over 200 devotees from across the district came to offer prayers, feed the cows, and participate in the celebration.</p><p>The event began at sunrise with a traditional aarti, followed by collective cow feeding, kirtan, and a community lunch. Local leaders and dignitaries also attended and pledged their support to our mission.</p><p>The event raised over ₹85,000 in donations — enough to feed all our cows for nearly two months. <strong>It was a day of devotion, community and Gau Seva at its finest.</strong></p>"
+    },
+    {
+        emoji: '🌿', bg: 'linear-gradient(135deg,#0a2a1a,#00695C)',
+        tag: 'Environment', date: '📅 December 2025',
+        title: "500 Trees Planted — Our Green Drive in Hathras",
+        content: "<p>In December 2025, Nandini Trust organised a large-scale tree plantation drive across Hathras district. Over 80 volunteers participated, planting 500 saplings of native species including neem, peepal, and gulmohar.</p><p>The drive covered schools, government buildings, roadsides and open community land. Each sapling was tagged and assigned to a local volunteer for regular watering and care over the next year.</p><p>We believe that Gau Seva and Prakruti Seva go hand in hand — healthy trees mean cleaner air, better fodder, and a healthier environment for both cows and humans. <strong>This is just the beginning.</strong></p>"
+    }
+];
+
+function openBlog(i) {
+    var b = blogs[i];
+    document.getElementById('blogPopupHero').style.background = b.bg;
+    document.getElementById('blogPopupHero').textContent = b.emoji;
+    document.getElementById('blogPopupTag').textContent = b.tag;
+    document.getElementById('blogPopupTitle').textContent = b.title;
+    document.getElementById('blogPopupDate').textContent = b.date;
+    document.getElementById('blogPopupContent').innerHTML = b.content;
+    document.getElementById('blogPopup').classList.add('show');
+}
+</script>
+
+<!-- SOCIAL -->
+<div class="social-section" id="contact">
+    <h2>Follow Our Journey</h2>
+    <p>Daily updates, rescue stories & more — stay connected with us</p>
+    <div class="social-row">
+        <a href="https://wa.me/919719529986" class="soc-btn wa" target="_blank">💬 WhatsApp</a>
+        <a href="https://www.facebook.com/share/1C2HSRy3YM/" class="soc-btn fb" target="_blank">📘 Facebook</a>
+        <a href="https://www.instagram.com/nandini_ngo" class="soc-btn ig" target="_blank">📸 Instagram</a>
+        <a href="https://youtube.com/@nandinitrust" class="soc-btn yt" target="_blank">▶️ YouTube</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <span class="footer-brand-name">🐄 Nandini Dharmartha Gau Seva Trust</span>
+            <p>A registered Gau Seva Sansthan dedicated to the rescue, rehabilitation and lifelong care of cows. All donations are tax-exempt under Section 80G.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="#mission">About Us</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#location">Our Location</a>
+            <a href="features.html">Sponsor a Cow</a>
+            <a href="features.html#stories">Cow Stories</a>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <a href="donate.html">Donate Now</a>
+            <a href="#volunteer">Volunteer</a>
+            <a href="features.html#occasion">Special Occasion</a>
+            <a href="features.html#whatsapp">WhatsApp Updates</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Nandini Dharmartha Gau Seva Trust · All Rights Reserved &nbsp;|&nbsp; Made with ❤️ for Gau Mata</p>
+    </div>
+</footer>
+
+<!-- FLOATING DONATE -->
+<a href="donate.html" class="float-donate">❤️ Donate Now</a>
+
+<!-- FEEDBACK WIDGET -->
+<button id="feedbackBtn" onclick="document.getElementById('feedbackBox').classList.toggle('active')">🐄 Feedback</button>
+
+<div id="feedbackBox">
+    <div class="fbx-head">
+        <span>Rate Your Experience</span>
+        <button class="fbx-close" onclick="document.getElementById('feedbackBox').classList.remove('active')">✕</button>
+    </div>
+    <p class="fbx-sub">How was your experience on our website?</p>
+    <div class="fbx-cows">
+        <div class="fbx-cow" onclick="pickRating(this,1)"><span class="icon">🐄</span><span class="lbl">V.Bad</span></div>
+        <div class="fbx-cow" onclick="pickRating(this,2)"><span class="icon">🐄</span><span class="lbl">Bad</span></div>
+        <div class="fbx-cow" onclick="pickRating(this,3)"><span class="icon">🐄</span><span class="lbl">Okay</span></div>
+        <div class="fbx-cow" onclick="pickRating(this,4)"><span class="icon">🐄</span><span class="lbl">Good</span></div>
+        <div class="fbx-cow" onclick="pickRating(this,5)"><span class="icon">🐄</span><span class="lbl">Great</span></div>
+    </div>
+    <input class="fbx-input" type="text"  id="fbxName"  placeholder="Your name *" />
+    <input class="fbx-input" type="email" id="fbxEmail" placeholder="Email address *" />
+    <input class="fbx-input" type="tel"   id="fbxPhone" placeholder="Phone number *" />
+    <input class="fbx-input" type="text"  id="fbxCity"  placeholder="city *" />
+    <textarea id="fbxText" rows="3" placeholder="Want to say anything?"></textarea>
+    <button class="fbx-submit" onclick="sendFeedback()">Submit Feedback</button>
+    <div id="fbxThanks">🐄 Thank you! we have received your feedback.</div>
+</div>
+
+<!-- EmailJS Library -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    // ── EmailJS Setup ──
+    // STEP 1: Create a free account on emailjs.com
+    // STEP 2: Connect your Gmail service
+    // STEP 3: Create a template and replace the IDs below
+    emailjs.init('sZBECwrAvtRRy0pQt'); // Public Key
+
+    var pickedRating = 0;
+    var ratingLabels = ['', 'Very Bad', 'Bad', 'Okay', 'Good', 'Excellent'];
+
+    function pickRating(el, r) {
+        pickedRating = r;
+        document.querySelectorAll('.fbx-cow').forEach(function(c){ c.classList.remove('picked'); });
+        el.classList.add('picked');
+    }
+
+    function sendFeedback() {
+        if (!pickedRating) { alert('Please select a rating first! 🐄'); return; }
+
+        var name    = document.getElementById('fbxName').value.trim();
+        var email   = document.getElementById('fbxEmail').value.trim();
+        var phone   = document.getElementById('fbxPhone').value.trim();
+        var city    = document.getElementById('fbxCity').value.trim();
+        var message = document.getElementById('fbxText').value.trim();
+
+        if (!name)  { alert('Please enter your name!'); return; }
+        if (!email) { alert('Please enter your email!'); return; }
+        if (!phone) { alert('Please enter your phone number!'); return; }
+        if (!city)  { alert('Please enter your city!'); return; }
+
+        var submitBtn = document.querySelector('.fbx-submit');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        emailjs.send(
+            'service_jg47vfo',
+            'template_yotfv9k',
+            {
+                name:     name,
+                email:    email,
+                phone:    phone,
+                city:     city,
+                title:    'Website Feedback',
+                rating:   pickedRating + '/5 — ' + ratingLabels[pickedRating],
+                message:  message || 'No message provided',
+                time:     new Date().toLocaleString('en-IN'),
+            }
+        ).then(function() {
+            document.getElementById('fbxThanks').style.display = 'block';
+            document.getElementById('fbxText').value = '';
+            document.getElementById('fbxName').value = '';
+            document.getElementById('fbxEmail').value = '';
+            document.getElementById('fbxPhone').value = '';
+            document.getElementById('fbxCity').value = '';
+            pickedRating = 0;
+            document.querySelectorAll('.fbx-cow').forEach(function(c){ c.classList.remove('picked'); });
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Feedback';
+            setTimeout(function() {
+                document.getElementById('fbxThanks').style.display = 'none';
+                document.getElementById('feedbackBox').classList.remove('active');
+            }, 3000);
+        }, function(error) {
+            alert('Failed to send. Please try again!');
+            console.log('EmailJS Error:', error);
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Feedback';
+        });
+    }
+</script>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // COUNTER
+    var counted = false;
+    function runCounters() {
+        if (counted) return; counted = true;
+        document.querySelectorAll('.number').forEach(function(el) {
+            var t = parseInt(el.getAttribute('data-target')), s = t / 100, c = 0;
+            var tm = setInterval(function() {
+                c += s;
+                if (c >= t) { el.textContent = t + '+'; clearInterval(tm); }
+                else { el.textContent = Math.floor(c); }
+            }, 18);
+        });
+    }
+</script>
+</body>
+</html>
