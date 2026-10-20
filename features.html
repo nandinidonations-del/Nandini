@@ -24,8 +24,8 @@
 
         /* NAV */
         nav { background: #fff; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 999; border-bottom: 3px solid var(--saffron); box-shadow: 0 2px 16px rgba(107,26,26,0.08); }
-        .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; text-decoration: none; }
-        .brand-icon { width: 46px; height: 46px; background: var(--maroon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+        .nav-brand { display: flex; align-items: center; padding: 4px 0; text-decoration: none; }
+        .brand-logo { display: block; width: 88px; height: 58px; object-fit: contain; }
         .brand-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--maroon); display: block; line-height: 1.2; }
         .brand-sub  { font-size: 10px; color: var(--saffron); text-transform: uppercase; letter-spacing: 1.5px; }
         .nav-links  { display: flex; align-items: center; gap: 2px; }
@@ -103,18 +103,6 @@
         .popup-success h3 { color: #2e7d32; font-family: 'Playfair Display', serif; margin: 10px 0 8px; }
         .popup-success p { color: var(--muted); font-size: 14px; line-height: 1.7; }
 
-        /* ── 2. STORIES ── */
-        .stories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 24px; max-width: 980px; margin: 0 auto; }
-        .story-card { background: white; border-top: 4px solid var(--saffron); box-shadow: 0 2px 16px rgba(107,26,26,0.07); overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
-        .story-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(107,26,26,0.12); }
-        .story-img { height: 170px; display: flex; align-items: center; justify-content: center; font-size: 68px; }
-        .story-body { padding: 20px; }
-        .story-tag { display: inline-block; background: var(--cream); color: var(--saffron); font-size: 10px; font-weight: 700; padding: 3px 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; border: 1px solid #E2D8CC; }
-        .story-body h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--maroon); margin-bottom: 8px; }
-        .story-body p { font-size: 13px; color: var(--muted); line-height: 1.72; margin-bottom: 14px; font-weight: 300; }
-        .story-meta { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #bbb; }
-        .story-badge { background: #f0faf4; color: #2e7d32; padding: 3px 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
-
         /* ── 3. OCCASION ── */
         .occasion-wrap { max-width: 700px; margin: 0 auto; }
         .occasion-grid { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 36px; }
@@ -183,6 +171,7 @@
 
         @media (max-width: 768px) {
             .topbar, .nav-links { display: none; }
+            .brand-logo { width: 76px; height: 50px; }
             .sponsor-card { min-width: 160px; }
             .footer-grid { grid-template-columns: 1fr; gap: 24px; }
             .wa-top { flex-direction: column; text-align: center; }
@@ -206,11 +195,7 @@
 <!-- NAV -->
 <nav>
     <a href="Index.html" class="nav-brand">
-        <div class="brand-icon">🐄</div>
-        <div>
-            <span class="brand-name">Nandini Dharmartha Gau Seva Trust</span>
-            <span class="brand-sub">Gau Seva Sansthan · Est. 2024</span>
-        </div>
+        <img class="brand-logo" src="nandini-trust-logo.png" alt="Nandini Dharmartha Gau Seva Trust">
     </a>
     <div class="nav-links">
         <a href="Index.html">Home</a>
@@ -227,13 +212,12 @@
 <div class="page-hero">
     <div class="breadcrumb"><a href="Index.html">Home</a> &nbsp;›&nbsp; Support Us</div>
     <h1>Ways to <em>Support</em> Gau Mata</h1>
-    <p>Sponsor a cow, celebrate special occasions, read rescue stories, and stay connected with us — every action matters.</p>
+    <p>Sponsor a cow, celebrate special occasions, and stay connected with us — every action matters.</p>
 </div>
 
 <!-- STICKY TABS -->
 <div class="sticky-tabs">
     <a href="#sponsor"  class="tab-btn"><span class="tab-full">🐄 Sponsor a Cow</span><span class="tab-short">🐄 Sponsor</span></a>
-    <a href="#stories"  class="tab-btn"><span class="tab-full">📖 Cow Stories</span><span class="tab-short">📖 Stories</span></a>
     <a href="#occasion" class="tab-btn"><span class="tab-full">🎂 Special Occasion</span><span class="tab-short">🎂 Occasion</span></a>
     <a href="#whatsapp" class="tab-btn"><span class="tab-full">💬 WhatsApp Updates</span><span class="tab-short">💬 WhatsApp</span></a>
 </div>
@@ -316,73 +300,6 @@
             <div class="big">🎉</div>
             <h3>Thank You!</h3>
             <p>Your sponsorship has been confirmed! Our team will contact you shortly. The first cow photo will be sent to your WhatsApp soon! 🐄</p>
-        </div>
-    </div>
-</div>
-
-
-<!-- ══ 2. STORIES ══ -->
-<div class="section alt" id="stories">
-    <div class="section-head">
-        <span class="section-label">Rescued & Recovering</span>
-        <div class="gold-div"><span>❧</span></div>
-        <h2>Stories of Our Cows</h2>
-        <p>Real stories of cows we have rescued and cared for. Your donations made these stories possible.</p>
-    </div>
-    <div class="stories-grid">
-        <div class="story-card">
-            <div class="story-img" style="background:linear-gradient(135deg,#fff3e0,#fce4ec);">🐄</div>
-            <div class="story-body">
-                <span class="story-tag">Rescued</span>
-                <h3>Kamdhenu's Story</h3>
-                <p>Kamdhenu was found injured after an accident, with wounds on three of her legs. Our team rescued her and provided three months of intensive medical care. Today she is completely healthy and thriving! 🐄</p>
-                <div class="story-meta"><span>📅 January 2026</span><span class="story-badge">✅ Recovered</span></div>
-            </div>
-        </div>
-        <div class="story-card">
-            <div class="story-img" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">🐮</div>
-            <div class="story-body">
-                <span class="story-tag">Abandoned</span>
-                <h3>Nandini's New Life</h3>
-                <p>Nandini was found abandoned alone in a field — severely weak and starving. We brought her to the gaushala and nursed her back to health. She now eats happily from our volunteers' hands and is loved by all! 😄</p>
-                <div class="story-meta"><span>📅 February 2026</span><span class="story-badge">✅ Happy</span></div>
-            </div>
-        </div>
-        <div class="story-card">
-            <div class="story-img" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">🐄</div>
-            <div class="story-body">
-                <span class="story-tag">old cow</span>
-                <h3>serving an old cow</h3>
-                <p>An old cow once lived near our village, weak and tired after years of hard life. Many people ignored her, but we decided to take care of her. Every day, we gave her fresh food, clean water, and a safe place to rest. Slowly, she became healthier and her eyes began to shine again. Taking care of her taught us kindness, compassion, and the importance of helping those who cannot help themselves.
-                <div class="story-meta"><span>📅 March 2026</span><span class="story-badge">saving an old cow</span></div>
-            </div>
-        </div>
-        <div class="story-card">
-            <div class="story-img" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">🐄</div>
-            <div class="story-body">
-                <span class="story-tag">Medical Care</span>
-                <h3>Gauri's Victory</h3>
-                <p>Gauri was suffering from a serious skin infection when she arrived. Our vet, Dr. Ramesh, treated her continuously for six weeks. Her remarkable recovery moved everyone at the gaushala to tears — a true victory! 💪</p>
-                <div class="story-meta"><span>📅 December 2025</span><span class="story-badge">✅ Cured</span></div>
-            </div>
-        </div>
-        <div class="story-card">
-            <div class="story-img" style="background:linear-gradient(135deg,#fff9c4,#fff59d);">🐄</div>
-            <div class="story-body">
-                <span class="story-tag">Rescued</span>
-                <h3>Lakshmi — A New Dawn</h3>
-                <p>Lakshmi was rescued from an illegal slaughterhouse and arrived frightened and deeply traumatised. Our caregivers showered her with patience and love. Today she is the most calm and gentle cow in our gaushala. ❤️</p>
-                <div class="story-meta"><span>📅 November 2025</span><span class="story-badge">✅ Trusts Us</span></div>
-            </div>
-        </div>
-        <div class="story-card">
-            <div class="story-img" style="background:linear-gradient(135deg,#ede7f6,#d1c4e9);">🐮</div>
-            <div class="story-body">
-                <span class="story-tag">Elderly</span>
-                <h3>Shyama — A Peaceful Old Age</h3>
-                <p>Shyama is an 18-year-old cow who was abandoned by her owner. She has become the "grandmother" of our gaushala — always keeping a watchful, caring eye over all the younger calves! 🥰</p>
-                <div class="story-meta"><span>📅 October 2025</span><span class="story-badge">🏡 Forever Home</span></div>
-            </div>
         </div>
     </div>
 </div>

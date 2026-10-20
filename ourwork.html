@@ -26,8 +26,8 @@
 
         /* NAV */
         nav { background: #fff; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 999; border-bottom: 3px solid var(--saffron); box-shadow: 0 2px 16px rgba(107,26,26,0.08); }
-        .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; text-decoration: none; }
-        .brand-icon { width: 46px; height: 46px; background: var(--maroon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+        .nav-brand { display: flex; align-items: center; padding: 4px 0; text-decoration: none; }
+        .brand-logo { display: block; width: 88px; height: 58px; object-fit: contain; }
         .brand-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--maroon); display: block; line-height: 1.2; }
         .brand-sub  { font-size: 10px; color: var(--saffron); text-transform: uppercase; letter-spacing: 1.5px; }
         .nav-links  { display: flex; align-items: center; gap: 2px; }
@@ -83,6 +83,13 @@
         .content-grid.reverse { }
 
         .cause-visual { position: relative; }
+        .gauseva-photo { display: block; width: 100%; height: 308px; object-fit: cover; border-top: 4px solid var(--saffron); box-shadow: 0 4px 30px rgba(107,26,26,0.1); }
+        .environment-photo { display: block; width: 100%; height: 308px; object-fit: cover; border-top: 4px solid #00695C; border-radius: 12px; box-shadow: 0 4px 30px rgba(107,26,26,0.1); }
+        .cause-section-photo-wrap { position: relative; }
+        .cause-section-photo { display: block; width: 100%; height: 308px; object-fit: cover; box-shadow: 0 4px 30px rgba(107,26,26,0.1); }
+        .cause-section-photo.green { border-top: 4px solid #2E7D32; }
+        .cause-section-photo.blue { border-top: 4px solid #1565C0; }
+        .cause-photo-credit { position: absolute; right: 8px; bottom: 8px; padding: 4px 7px; border-radius: 20px; background: rgba(35,24,18,0.72); color: white; font-size: 9px; text-decoration: none; }
         .cause-emoji-box {
             background: white;
             border-top: 4px solid var(--saffron);
@@ -96,6 +103,9 @@
         .cause-emoji-box.blue   { border-top-color: #1565C0; }
         .cause-emoji-box.purple { border-top-color: #6A1B9A; }
         .cause-emoji-box.teal   { border-top-color: #00695C; }
+        .gauriya-photo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 30px rgba(107,26,26,0.1); }
+        .gauriya-photo-grid img { width: 100%; height: 150px; object-fit: cover; transition: transform 0.35s ease; }
+        .gauriya-photo-grid img:hover { transform: scale(1.04); }
         .cause-stat-row { display: flex; gap: 12px; margin-top: 14px; }
         .cause-stat { flex: 1; background: white; padding: 16px 12px; text-align: center; box-shadow: 0 2px 10px rgba(107,26,26,0.06); }
         .cause-stat .s-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--maroon); display: block; }
@@ -173,6 +183,7 @@
 
         @media (max-width: 768px) {
             .topbar, .nav-links { display: none; }
+            .brand-logo { width: 76px; height: 50px; }
             .section-head { grid-template-columns: 1fr; }
             .cause-number { display: none; }
             .content-grid, .content-grid.reverse, .hf-grid { grid-template-columns: 1fr; direction: ltr; width: 100%; }
@@ -202,11 +213,7 @@
 <!-- NAV -->
 <nav>
     <a href="Index.html" class="nav-brand">
-        <div class="brand-icon">🐄</div>
-        <div>
-            <span class="brand-name">Nandini Dharmartha Gau Seva Trust</span>
-            <span class="brand-sub">Gau Seva Sansthan · Est. 2024</span>
-        </div>
+        <img class="brand-logo" src="nandini-trust-logo.png" alt="Nandini Dharmartha Gau Seva Trust">
     </a>
     <div class="nav-links">
         <a href="Index.html">Home</a>
@@ -250,7 +257,9 @@
 
     <div class="content-grid">
         <div class="cause-visual">
-            <div class="cause-emoji-box green">📚</div>
+            <div class="cause-section-photo-wrap">
+                <img class="cause-section-photo green" src="education-stationery.jpg" alt="Children with books and school stationery" loading="lazy">
+            </div>
             <div class="cause-stat-row">
                 <div class="cause-stat"><span class="s-num">200+</span><span class="s-lbl">Children Supported</span></div>
                 <div class="cause-stat"><span class="s-num">50+</span><span class="s-lbl">Families Helped</span></div>
@@ -302,7 +311,7 @@
 
     <div class="content-grid reverse">
         <div class="cause-visual">
-            <div class="cause-emoji-box blue">👴</div>
+            <img class="cause-section-photo blue" src="mission-vriddhashram.jpg" alt="Elders gathered together at a Vriddhashram" loading="lazy">
             <div class="cause-stat-row">
                 <div class="cause-stat"><span class="s-num">100+</span><span class="s-lbl">Elders Helped</span></div>
                 <div class="cause-stat"><span class="s-num">Monthly</span><span class="s-lbl">Visits</span></div>
@@ -354,7 +363,12 @@
 
     <div class="content-grid">
         <div class="cause-visual">
-            <div class="cause-emoji-box purple">🐦</div>
+            <div class="gauriya-photo-grid" aria-label="Sparrows and community nesting-box work">
+                <img src="sparrow-nesting-boxes.jpeg" alt="Nesting boxes prepared to provide safe homes for sparrows" loading="lazy">
+                <img src="sparrow-community-outreach.jpeg" alt="Community members and children holding sparrow nesting boxes" loading="lazy">
+                <img src="sparrow-rain.jpg" alt="Sparrow resting in the rain" loading="lazy">
+                <img src="sparrow-closeup.jpg" alt="Close-up of a house sparrow" loading="lazy">
+            </div>
             <div class="cause-stat-row">
                 <div class="cause-stat"><span class="s-num">500+</span><span class="s-lbl">Birds Supported</span></div>
                 <div class="cause-stat"><span class="s-num">100+</span><span class="s-lbl">Nests Installed</span></div>
@@ -410,7 +424,7 @@
 
     <div class="content-grid reverse">
         <div class="cause-visual">
-            <div class="cause-emoji-box teal">🌿</div>
+            <img class="environment-photo" src="environment-saplings.jpg" alt="Young green saplings ready to be planted" loading="lazy">
             <div class="cause-stat-row">
                 <div class="cause-stat"><span class="s-num">15+</span><span class="s-lbl">Drives Conducted</span></div>
                 <div class="cause-stat"><span class="s-num">500+</span><span class="s-lbl">KG Waste Removed</span></div>
@@ -462,7 +476,7 @@
 
     <div class="content-grid">
         <div class="cause-visual">
-            <div class="cause-emoji-box">🐄</div>
+            <img class="gauseva-photo" src="gau-seva-cows.png" alt="Cows resting together under trees at the gaushala" width="768" height="1024">
             <div class="cause-stat-row">
                 <div class="cause-stat"><span class="s-num">500+</span><span class="s-lbl">Cows Rescued</span></div>
                 <div class="cause-stat"><span class="s-num">24/7</span><span class="s-lbl">Rescue Response</span></div>

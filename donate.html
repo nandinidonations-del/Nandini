@@ -24,8 +24,8 @@
 
         /* NAV */
         nav { background: #fff; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 999; border-bottom: 3px solid var(--saffron); box-shadow: 0 2px 16px rgba(107,26,26,0.08); }
-        .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; text-decoration: none; }
-        .brand-icon { width: 46px; height: 46px; background: var(--maroon); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+        .nav-brand { display: flex; align-items: center; padding: 4px 0; text-decoration: none; }
+        .brand-logo { display: block; width: 88px; height: 58px; object-fit: contain; }
         .brand-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--maroon); display: block; line-height: 1.2; }
         .brand-sub  { font-size: 10px; color: var(--saffron); text-transform: uppercase; letter-spacing: 1.5px; }
         .nav-links  { display: flex; align-items: center; gap: 2px; }
@@ -167,6 +167,7 @@
 
         @media (max-width: 768px) {
             .topbar, .nav-links { display: none; }
+            .brand-logo { width: 76px; height: 50px; }
             .amount-grid { grid-template-columns: repeat(2,1fr); }
             .impact-grid { flex-direction: column; }
             .impact-box { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
@@ -188,11 +189,7 @@
 <!-- NAV -->
 <nav>
     <a href="Index.html" class="nav-brand">
-        <div class="brand-icon">🐄</div>
-        <div>
-            <span class="brand-name">Nandini Dharmartha Gau Seva Trust</span>
-            <span class="brand-sub">Gau Seva Sansthan · Est. 2024</span>
-        </div>
+        <img class="brand-logo" src="nandini-trust-logo.png" alt="Nandini Dharmartha Gau Seva Trust">
     </a>
     <div class="nav-links">
         <a href="Index.html">Home</a>
@@ -329,7 +326,7 @@
         <div class="impact-box"><span class="num" data-target="500">0</span><span class="lbl">Cows Rescued</span></div>
         <div class="impact-box"><span class="num" data-target="1200">0</span><span class="lbl">Generous Donors</span></div>
         <div class="impact-box"><span class="num" data-target="80">0</span><span class="lbl">Volunteers</span></div>
-        <div class="impact-box"><span class="num" data-target="6">0</span><span class="lbl">Years of Seva</span></div>
+        <div class="impact-box"><span class="num" data-target="3">0</span><span class="lbl">Years of Seva</span></div>
     </div>
 </div>
 
